@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI Automation for Regulated Businesses</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --ink:        #0f1117;
+      --ink-soft:   #3d4251;
+      --ink-muted:  #6b7280;
+      --bg:         #ffffff;
+      --bg-alt:     #f8f9fb;
+      --accent:     #1a56db;
+      --accent-dk:  #1240b0;
+      --border:     #e5e7eb;
+      --radius:     10px;
+      --max:        760px;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background: var(--bg);
+      color: var(--ink);
+      line-height: 1.65;
+      font-size: 17px;
+    }
+
+    /* ─── Centered container used in every section ─── */
+    .inner {
+      max-width: var(--max);
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    /* ─── Nav ─── */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(255,255,255,0.93);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      padding: 0 24px;
+    }
+    .nav-inner {
+      max-width: var(--max);
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 60px;
+    }
+    .nav-logo {
+      font-weight: 700;
+      font-size: 15px;
+      letter-spacing: -0.01em;
+      color: var(--ink);
+      text-decoration: none;
+    }
+    .nav-cta {
+      font-size: 13.5px;
+      font-weight: 600;
+      color: var(--accent);
+      text-decoration: none;
+      padding: 7px 16px;
+      border: 1.5px solid var(--accent);
+      border-radius: 6px;
+      transition: background 0.15s, color 0.15s;
+    }
+    .nav-cta:hover { background: var(--accent); color: #fff; }
+
+    /* ─── Sections ─── */
+    section { padding: 100px 24px; }
+    section:nth-child(even):not(.cta-section) { background: var(--bg-alt); }
+
+    /* ─── Section eyebrow label ─── */
+    .label {
+      display: inline-block;
+      font-size: 10.5px;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 16px;
+    }
+
+    /* ─── Section headings ─── */
+    h2 {
+      font-size: clamp(1.6rem, 3.5vw, 2.1rem);
+      font-weight: 800;
+      letter-spacing: -0.028em;
+      line-height: 1.2;
+      color: var(--ink);
+      margin-bottom: 20px;
+    }
+    .section-intro {
+      font-size: 1.05rem;
+      color: var(--ink-soft);
+      max-width: 540px;
+      margin: 0 auto 52px;
+    }
+
+    /* ─── Hero / Problem ─── */
+    .hero { padding: 120px 24px 108px; background: var(--bg); }
+    .hero .eyebrow {
+      display: inline-block;
+      font-size: 10.5px;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 18px;
+    }
+    .hero h1 {
+      font-size: clamp(2.1rem, 5.5vw, 3rem);
+      font-weight: 800;
+      letter-spacing: -0.035em;
+      line-height: 1.16;
+      color: var(--ink);
+      max-width: 640px;
+      margin: 0 auto 24px;
+    }
+    .hero .lead {
+      font-size: 1.125rem;
+      color: var(--ink-soft);
+      max-width: 540px;
+      margin: 0 auto 0;
+    }
+    .risk-note {
+      display: block;
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--ink);
+      border-left: 3px solid var(--accent);
+      padding: 6px 20px;
+      margin: 36px auto 0;
+      max-width: 500px;
+      text-align: left;
+      background: #f0f5ff;
+      border-radius: 0 6px 6px 0;
+    }
+
+    /* ─── Offer ─── */
+    .offer-box {
+      background: var(--ink);
+      color: #fff;
+      border-radius: var(--radius);
+      padding: 44px 48px;
+      margin-top: 8px;
+    }
+    .offer-box p {
+      font-size: 1.175rem;
+      line-height: 1.72;
+      color: #cbd5e1;
+      max-width: 580px;
+      margin: 0 auto;
+    }
+    .offer-box strong { color: #fff; }
+
+    /* ─── How it works — 3 columns ─── */
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0;
+      margin-top: 8px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+    }
+    .step {
+      padding: 36px 28px 40px;
+      text-align: center;
+      background: var(--bg);
+      border-right: 1px solid var(--border);
+    }
+    .step:last-child { border-right: none; }
+    .step-num {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      background: var(--accent);
+      color: #fff;
+      font-size: 13px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 20px;
+    }
+    .step h3 {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--ink);
+      margin-bottom: 10px;
+      letter-spacing: -0.01em;
+    }
+    .step p {
+      font-size: 0.915rem;
+      color: var(--ink-soft);
+      line-height: 1.6;
+    }
+
+    /* ─── Proof ─── */
+    .proof-card {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 40px 44px;
+      text-align: center;
+    }
+    .proof-card .proof-label {
+      font-size: 10.5px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--ink-muted);
+      margin-bottom: 12px;
+    }
+    .proof-card h3 {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--ink);
+      margin-bottom: 28px;
+      line-height: 1.45;
+    }
+    .proof-features {
+      list-style: none;
+      display: inline-flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-bottom: 32px;
+      text-align: left;
+    }
+    .proof-features li {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: 0.945rem;
+      color: var(--ink-soft);
+    }
+    .proof-features li::before {
+      content: "✓";
+      color: var(--accent);
+      font-weight: 700;
+      font-size: 13px;
+      margin-top: 2px;
+      flex-shrink: 0;
+    }
+    .compliance-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 36px;
+      justify-content: center;
+    }
+    .tag {
+      font-size: 11px;
+      font-weight: 600;
+      padding: 4px 11px;
+      border-radius: 4px;
+      background: #eff6ff;
+      color: var(--accent);
+      border: 1px solid #bfdbfe;
+    }
+    .workflow-img-wrap img {
+      display: block;
+      width: 100%;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      cursor: zoom-in;
+    }
+    .workflow-img-wrap figcaption {
+      margin-top: 12px;
+      font-size: 13px;
+      color: var(--ink-muted);
+      text-align: center;
+    }
+
+    /* ─── CTA ─── */
+    .cta-section {
+      background: #f0f5ff;
+    }
+    .cta-section h2 {
+      color: var(--ink);
+      margin-bottom: 14px;
+    }
+    .cta-section .cta-sub {
+      color: var(--ink-soft);
+      font-size: 1rem;
+      max-width: 500px;
+      margin: 0 auto 40px;
+    }
+    .btn-primary {
+      display: inline-block;
+      background: var(--accent);
+      color: #fff;
+      font-size: 1rem;
+      font-weight: 700;
+      padding: 17px 38px;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: background 0.15s, transform 0.12s;
+      letter-spacing: -0.01em;
+    }
+    .btn-primary:hover { background: var(--accent-dk); transform: translateY(-2px); }
+
+    /* ─── Footer ─── */
+    footer {
+      padding: 32px 24px;
+      border-top: 1px solid var(--border);
+      text-align: center;
+      font-size: 13px;
+      color: var(--ink-muted);
+    }
+
+    /* ─── Responsive ─── */
+    @media (max-width: 640px) {
+      section { padding: 72px 20px; }
+      .hero { padding: 80px 20px 72px; }
+      .offer-box { padding: 32px 24px; }
+      .proof-card { padding: 28px 20px; }
+      .steps {
+        grid-template-columns: 1fr;
+      }
+      .step {
+        border-right: none;
+        border-bottom: 1px solid var(--border);
+      }
+      .step:last-child { border-bottom: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Nav -->
+  <nav>
+    <div class="nav-inner">
+      <a class="nav-logo" href="#">AI Automation</a>
+      <a class="nav-cta" href="#cta">Book a call</a>
+    </div>
+  </nav>
+
+  <!-- Section 1 — Problem -->
+  <section class="hero">
+    <div class="inner">
+      <span class="eyebrow">The problem</span>
+      <h1>Your specialists are buried in paperwork that doesn't need them.</h1>
+      <p class="lead">
+        Manual document processing, customer communication, and compliance
+        reporting eat hours every week — work that doesn't require your team's
+        expertise.
+      </p>
+      <span class="risk-note">
+        In regulated industries, manual processes don't just waste time.
+        They create compliance risk.
+      </span>
+    </div>
+  </section>
+
+  <!-- Section 2 — Offer -->
+  <section>
+    <div class="inner">
+      <div class="label">What I do</div>
+      <h2>Automation built for regulated businesses.</h2>
+      <div class="offer-box">
+        <p>
+          I help <strong>regulated businesses in the Baltics</strong> automate
+          document processing, customer communication, and compliance reporting
+          — so that specialists focus on decisions that require human
+          judgment, <strong>not paperwork</strong>.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 3 — How it works -->
+  <section>
+    <div class="inner">
+      <div class="label">How it works</div>
+      <h2>Three steps from process to production.</h2>
+      <div class="steps">
+        <div class="step">
+          <div class="step-num">1</div>
+          <h3>Discovery</h3>
+          <p>We map your current processes together and identify where your team's time is being wasted most.</p>
+        </div>
+        <div class="step">
+          <div class="step-num">2</div>
+          <h3>Design</h3>
+          <p>We model the new automated process before launching it — so you see exactly what will run before anything goes live.</p>
+        </div>
+        <div class="step">
+          <div class="step-num">3</div>
+          <h3>Deploy</h3>
+          <p>We deploy the workflow in your live environment — with compliance guardrails built in and your team trained to use it from day one.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 4 — Proof -->
+  <section>
+    <div class="inner">
+      <div class="label">Proof of work</div>
+      <h2>Real work. Production-grade.</h2>
+      <p class="section-intro">
+        Built for a Baltic fintech to automate debt collections for overdue
+        customers — replacing manual specialist calls with a compliant,
+        production-grade AI workflow.
+      </p>
+      <div class="proof-card">
+        <div class="proof-label">Case study — Debt collections automation</div>
+        <h3>AI-powered outreach workflow replacing manual specialist calls</h3>
+        <ul class="proof-features">
+          <li>Duplicate call prevention via CRM state check</li>
+          <li>Contact hour enforcement with automatic rescheduling logic</li>
+          <li>Escalation pathway for unresolved cases</li>
+          <li>Full audit trail logging and call summary</li>
+        </ul>
+        <div class="compliance-tags">
+          <span class="tag">FSA contact hour enforcement</span>
+          <span class="tag">GDPR Article 22</span>
+          <span class="tag">ePrivacy Directive</span>
+          <span class="tag">Full audit trail</span>
+        </div>
+        <figure class="workflow-img-wrap">
+          <img src="workflow.png" alt="Debt collections automation workflow built in n8n" onclick="document.getElementById('img-lightbox').style.display='flex'" />
+          <figcaption>Debt collections automation workflow — built in n8n</figcaption>
+        </figure>
+
+        <div id="img-lightbox" onclick="this.style.display='none'" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.85);z-index:1000;align-items:center;justify-content:center;cursor:zoom-out;padding:24px;">
+          <img src="workflow.png" alt="Debt collections automation workflow built in n8n" style="max-width:100%;max-height:100%;border-radius:8px;box-shadow:0 24px 80px rgba(0,0,0,0.6);" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 5 — CTA -->
+  <section class="cta-section" id="cta">
+    <div class="inner">
+      <h2>Book a free 30-minute discovery call.</h2>
+      <p class="cta-sub">No commitment. We map your process, identify the highest-impact automation opportunity, and you decide what happens next.</p>
+      <a class="btn-primary" href="#" target="_blank" rel="noopener">
+        Schedule a call &rarr;
+      </a>
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2026 · AI Automation for Regulated Businesses · Baltics</p>
+  </footer>
+
+</body>
+</html>
