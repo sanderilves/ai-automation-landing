@@ -20,7 +20,11 @@
       --max:        760px;
     }
 
-    html { scroll-behavior: smooth; }
+    html {
+      scroll-behavior: smooth;
+      overflow-x: hidden;
+      max-width: 100%;
+    }
 
     body {
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
@@ -28,6 +32,8 @@
       color: var(--ink);
       line-height: 1.65;
       font-size: 17px;
+      overflow-x: hidden;
+      max-width: 100%;
     }
 
     /* ─── Centered container used in every section ─── */
@@ -287,7 +293,12 @@
       text-align: center;
     }
     @media (max-width: 640px) {
-      .proof-card { padding: 28px 20px; }
+      .proof-card {
+        padding: 28px 20px;
+        width: 100%;
+        margin-left: 0;
+        margin-right: 0;
+      }
       .proof-cols { grid-template-columns: 1fr; gap: 28px; }
     }
 
