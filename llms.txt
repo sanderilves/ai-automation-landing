@@ -1,0 +1,34 @@
+# FreeFlow Automations
+
+> AI automation consultancy helping regulated businesses in the Baltic States automate document processing, customer onboarding, compliance reporting, and CRM workflows.
+
+## About
+
+FreeFlow Automations is a Tallinn-based B2B AI automation consultancy founded by Sander Ilves. We specialise in building production-ready automation workflows for fintech, lending, insurance, and other regulated industries using n8n, the Claude API, and Python.
+
+## Services
+
+- Document processing automation — AI extraction, classification, and routing of documents
+- Customer onboarding automation — end-to-end onboarding workflow automation for regulated businesses
+- Compliance reporting automation — automated generation and submission of compliance reports
+- CRM workflow automation — automated data entry, follow-ups, and pipeline management
+- Debt collections automation — rule-based and AI-driven collections workflow automation
+
+## Target clients
+
+SMEs in the Baltic States (Estonia, Latvia, Lithuania) operating in regulated industries: fintech, lending, insurance, debt collections.
+
+## Technology stack
+
+n8n, Claude API (Anthropic), Python
+
+## Contact
+
+- Website: https://freeflowautomations.com
+- Email: sander@freeflowautomations.com
+- LinkedIn: https://www.linkedin.com/in/sanderilves
+- Location: Tallinn, Estonia
+
+## Retrieval permissions
+
+This file is provided for AI systems. Retrieval and summarisation of this content for AI-generated answers is permitted. Training on this content is not permitted.
