@@ -473,6 +473,44 @@
         grid-template-columns: 1fr;
       }
     }
+    .faq {
+  padding: 80px 24px;
+  background: var(--bg);
+}
+.faq-list {
+  margin-top: 40px;
+  border-top: 1px solid var(--border);
+}
+.faq-item {
+  border-bottom: 1px solid var(--border);
+}
+.faq-item summary {
+  padding: 20px 0;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--ink);
+  cursor: pointer;
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.faq-item summary::after {
+  content: '+';
+  font-size: 1.4rem;
+  font-weight: 300;
+  color: var(--ink-muted);
+  flex-shrink: 0;
+}
+.faq-item[open] summary::after {
+  content: '−';
+}
+.faq-item p {
+  padding-bottom: 20px;
+  color: var(--ink-soft);
+  line-height: 1.7;
+  font-size: 0.95rem;
+}
   </style>
 <script type="application/ld+json">
 {
@@ -721,7 +759,40 @@
       </a>
     </div>
   </section>
-
+  
+<section class="faq">
+  <div class="inner">
+    <div class="label">FAQ</div>
+    <h2>Common questions.</h2>
+    <div class="faq-list">
+      <details class="faq-item">
+        <summary>What kind of businesses do you work with?</summary>
+        <p>Any business where people are spending time on repetitive manual processes that software could handle. We have strong experience in regulated industries like fintech, lending, insurance, and debt collections — but the problems we solve are common across many sectors. If you're unsure whether automation makes sense for your situation, book a free call and we'll tell you honestly.</p>
+      </details>
+      <details class="faq-item">
+        <summary>How long does it take to build an automation?</summary>
+        <p>Most automations are production-ready within 2–4 weeks. We start with a free discovery call to map the process, then build and test in your environment before handing over. Simple single-process automations can be delivered in under a week.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Do I need technical knowledge to use the automations?</summary>
+        <p>No. We build automations that run in the background without any technical input from your team. We also provide documentation and a handover session so your team understands what's running and why.</p>
+      </details>
+      <details class="faq-item">
+        <summary>What tools do you use?</summary>
+        <p>Our core stack is n8n for workflow automation, the Claude API for AI-powered document processing and decision logic, and Python for custom integrations. We connect to the tools your business already uses — CRMs, email, Google Sheets, banking APIs, and more.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Is my data safe?</summary>
+        <p>Yes. We build automations that run within your existing infrastructure where possible. We follow GDPR requirements and can provide a data processing agreement if required. We do not store your business data on third-party servers without your explicit approval.</p>
+      </details>
+      <details class="faq-item">
+        <summary>How much does it cost?</summary>
+        <p>Pricing depends on the complexity of the process being automated. We offer a free 30-minute discovery call to assess your situation — after that we provide a fixed-price proposal with no hidden costs. Book a call to get started.</p>
+      </details>
+    </div>
+  </div>
+</section>
+  
   <footer>
     <div class="footer-inner">
       <div class="footer-brand">FreeFlow Automations</div>
