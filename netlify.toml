@@ -15,3 +15,7 @@
   for = "/workflow.png"
   [headers.values]
     Cache-Control = "public, max-age=31536000, immutable"
+    [[redirects]]
+  from = "/privacy-policy.html"
+  to = "/privacy-policy"
+  status = 301
