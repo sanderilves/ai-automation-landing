@@ -455,6 +455,74 @@
       margin: 0;
     }
 
+    /* ─── Founder Bio ─── */
+    .founder-section {
+      max-width: 900px;
+      margin: 0 auto;
+      text-align: left;
+    }
+    .founder-section .founder-heading {
+      font-size: clamp(1.6rem, 3.5vw, 2.1rem);
+      font-weight: 800;
+      letter-spacing: -0.028em;
+      line-height: 1.2;
+      color: var(--ink);
+      margin-bottom: 16px;
+    }
+    .founder-section p {
+      font-size: 1rem;
+      color: var(--ink-soft);
+      line-height: 1.65;
+      margin-bottom: 12px;
+    }
+    .founder-section ul {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 12px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    .founder-section ul li {
+      font-size: 1rem;
+      color: var(--ink-soft);
+      line-height: 1.6;
+      padding-left: 20px;
+      position: relative;
+    }
+    .founder-section ul li::before {
+      content: "–";
+      position: absolute;
+      left: 0;
+      color: var(--accent);
+      font-weight: 700;
+    }
+    .founder-closing {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      margin-top: 20px;
+    }
+    .founder-closing img {
+      width: 160px;
+      height: 160px;
+      border-radius: 50%;
+      object-fit: cover;
+      flex-shrink: 0;
+      display: block;
+    }
+    .founder-closing p {
+      font-style: italic;
+      margin-bottom: 0;
+    }
+    @media (max-width: 640px) {
+      .founder-closing {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 16px;
+      }
+    }
+
     /* ─── Responsive ─── */
     @media (max-width: 640px) {
       section { padding: 72px 20px; }
@@ -815,7 +883,7 @@
       </a>
     </div>
   </section>
-  
+
 <section class="faq">
   <div class="inner">
     <div class="label">FAQ</div>
@@ -848,7 +916,33 @@
     </div>
   </div>
 </section>
-  
+
+  <!-- Founder Bio -->
+  <section>
+    <div class="founder-section">
+      <h2 class="founder-heading">About the founder</h2>
+      <p>I'm Sander Ilves, founder of FreeFlow Automations.</p>
+      <p>My path to automation came through working in operations and engineering roles across different industries:</p>
+      <ul>
+        <li>Degree in Industrial Engineering — I think in processes and systems</li>
+        <li>MSc in Organisational Behaviour — I understand how people and teams actually work</li>
+        <li>Years managing cross-functional projects at companies like Autoliv</li>
+        <li>Co-founded a predictive maintenance startup, taking it from concept to commercial pilots across five markets</li>
+      </ul>
+      <p>Along the way I noticed the same pattern everywhere: smart people wasting hours on repetitive manual work that software could handle. Scheduling, reporting, follow-ups, data entry — tasks that don't need a human but always have one.</p>
+      <p>I now build automation workflows for SMEs using n8n and AI. Recent work includes:</p>
+      <ul>
+        <li>Production-grade collections automation with full GDPR compliance logic for a fintech company</li>
+        <li>Client onboarding automation reducing manual processing time significantly</li>
+        <li>Maintenance reminder workflows eliminating manual follow-up entirely</li>
+      </ul>
+      <div class="founder-closing">
+        <img src="Sander_Ilves.jpg" alt="Sander Ilves, founder of FreeFlow Automations" />
+        <p>If you're tired of your best people doing admin work, let's talk.</p>
+      </div>
+    </div>
+  </section>
+
   <footer>
     <div class="footer-inner">
       <div class="footer-brand">FreeFlow Automations</div>
