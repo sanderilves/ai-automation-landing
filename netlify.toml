@@ -27,3 +27,9 @@
   to = "/et/"
   status = 301
   force = true
+
+[[redirects]]
+  from = "/et/privaatsuspoliitika"
+  to = "/et/privaatsuspoliitika.html"
+  status = 301
+  force = true
