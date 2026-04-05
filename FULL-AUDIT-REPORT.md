@@ -1,233 +1,133 @@
-# SEO Audit Report — FreeFlow Automations
-**URL:** https://freeflowautomations.com  
-**Date:** 2026-04-04  
-**Business type:** B2B AI automation consultancy (service area business — Baltic States)  
-**Auditor:** Claude Code SEO Audit
-
----
-
-## SEO Health Score: 75 / 100
-
-| Category | Weight | Score | Weighted |
-|---|---|---|---|
-| Technical SEO | 22% | 78 | 17.2 |
-| Content Quality | 23% | 68 | 15.6 |
-| On-Page SEO | 20% | 75 | 15.0 |
-| Schema / Structured Data | 10% | 72 | 7.2 |
-| Performance (CWV) | 10% | 85 | 8.5 |
-| AI Search Readiness | 10% | 80 | 8.0 |
-| Images | 5% | 65 | 3.2 |
-| **Total** | | | **74.7** |
+# SEO Audit Report — freeflowautomations.com/et/
+**Date:** 2026-04-05
+**Scope:** ET landing page + EN/ET bilingual setup
+**Overall SEO Health Score: 68 / 100**
 
 ---
 
 ## Executive Summary
 
-FreeFlow Automations has a technically solid single-page site: correct canonical, sitemap, well-configured robots.txt (including AI crawlers), security headers, schema markup, and a lightweight page with fast load characteristics. The **llms.txt** file is a genuine differentiator for AI search visibility.
+The site has a solid technical foundation: HTTPS enforced, HTTP/2, correct hreflang, valid JSON-LD schema, and all AI crawlers explicitly allowed. The main gaps are discoverability of the ET page (missing from sitemap and llms.txt), stale social meta on both pages, a duplicate URL, and content depth issues that limit AI citation eligibility. All critical and high items are fixable within a few hours.
 
-The main gaps are in **content depth and social proof**. A single anonymous case study with vague metrics limits trust and E-E-A-T signals. There are no client testimonials, no measurable results, and no named clients — which matters for a B2B consultancy selling to regulated businesses. Schema is good but incomplete (missing image, logo, hasOfferCatalog). Two image optimisation issues (missing `width`/`height` and `loading="lazy"` on the founder photo) may affect CLS and LCP scores.
-
-### Top 5 Critical Issues
-1. No client testimonials or named social proof
-2. Meta description 176 chars (over 160 recommended) — likely truncated in SERPs
-3. Founder photo missing `width`, `height`, and `loading="lazy"` — CLS risk
-4. Schema missing `image`, `logo`, and `hasOfferCatalog` on ProfessionalService
-5. CSP is report-only — provides no actual XSS protection
-
-### Top 5 Quick Wins
-1. Add `width="160" height="160" loading="lazy"` to founder photo (2-min fix, CLS improvement)
-2. Shorten meta description to under 160 chars
-3. Change nav logo `href="#"` to `href="/"` (crawlability + UX)
-4. Add `image` and `logo` to ProfessionalService schema
-5. Add HSTS header to netlify.toml
+**Top 5 critical issues:**
+1. `/et/` not in sitemap.xml — ET page not discoverable via sitemap on any platform
+2. OG/Twitter descriptions stale on both pages (old fintech-specific copy)
+3. FAQ schema answer text doesn't match visible HTML — blocks Google rich results
+4. `/et/index.html` returns HTTP 200 (same content as `/et/`) — duplicate URL
+5. No `hreflang="x-default"` on either page
 
 ---
 
 ## Technical SEO
 
-### Crawlability
-| Check | Status | Notes |
-|---|---|---|
-| robots.txt | ✓ Pass | Allows all crawlers including GPTBot, ClaudeBot, PerplexityBot, OAI-SearchBot |
-| Sitemap declared in robots.txt | ✓ Pass | Correct URL |
-| Canonical tag | ✓ Pass | `https://freeflowautomations.com/` |
-| Redirect from `/privacy-policy.html` | ✓ Pass | 301 configured in netlify.toml |
-| Nav logo href | ⚠ Warn | Links to `#` instead of `/` — minor crawlability signal |
+### Crawlability & Indexability
+- ✅ robots.txt allows GPTBot, ClaudeBot, PerplexityBot, Google-Extended, OAI-SearchBot
+- ✅ robots.txt references sitemap
+- ❌ **sitemap.xml missing `/et/`** — only `/` and `/privacy-policy` listed
+- ⚠️ sitemap has no hreflang annotations (xhtml:link entries)
 
-### Indexability
-| Check | Status | Notes |
-|---|---|---|
-| Google site verification | ✓ Pass | Meta tag present |
-| No noindex found | ✓ Pass | |
-| Sitemap URLs | ✓ Pass | Homepage + privacy-policy listed |
-| Sitemap lastmod date | ✓ Pass | 2026-04-03 (current) |
+### Canonicals & Hreflang
+- ✅ ET canonical: `https://freeflowautomations.com/et/`
+- ✅ Both hreflang tags on ET page (`en → /`, `et → /et/`)
+- ✅ Both hreflang tags on EN page
+- ❌ **No `hreflang="x-default"`** on either page
+- ❌ **`/et/index.html` returns HTTP 200** (same ETag as `/et/`) — duplicate URL
 
-### Security Headers (netlify.toml)
-| Header | Status | Notes |
-|---|---|---|
-| X-Frame-Options | ✓ DENY | |
-| X-Content-Type-Options | ✓ nosniff | |
-| Referrer-Policy | ✓ strict-origin-when-cross-origin | |
-| Permissions-Policy | ✓ Pass | camera, microphone, geolocation locked |
-| Content-Security-Policy | ⚠ Report-Only | Not enforced — no XSS protection |
-| Strict-Transport-Security (HSTS) | ✗ Missing | Add to netlify.toml |
+### Security Headers
+- ✅ HTTPS, HTTP/2, x-frame-options: DENY, x-content-type-options: nosniff
+- ✅ referrer-policy: strict-origin-when-cross-origin
+- ✅ permissions-policy: camera=(), microphone=(), geolocation=()
+- ✅ HSTS: max-age=31536000
+- ⚠️ HSTS missing `includeSubDomains; preload`
+- ⚠️ CSP is `report-only` — not enforced
 
----
-
-## Content Quality (E-E-A-T)
-
-### Experience & Expertise
-- Founder credentials detailed: Industrial Engineering degree, MSc Organisational Behaviour, Autoliv, startup co-founder — strong expertise signals
-- Real case study showing actual built workflow (with screenshot) — good experience signal
-- Technology stack named specifically (n8n, Claude API, Python) — demonstrates expertise
-
-### Authoritativeness
-- LinkedIn profile linked — external authority signal
-- No client testimonials — **significant gap** for a B2B services site
-- Case study client unnamed — reduces credibility
-- No partner badges, certifications, or press mentions
-
-### Trustworthiness
-- Phone number, email, and physical address present — strong trust signals
-- GDPR mention in FAQ — relevant for regulated industry clients
-- Privacy policy linked in footer
-- No `tel:` or `mailto:` schema markup in footer links (they're HTML anchors but not schema-linked)
-
-### Readability
-- Clear, direct writing style at ~10th grade reading level — appropriate for B2B
-- Problem/solution framing is effective
-- Section labelling (eyebrow labels) aids navigation
-- FAQ adds useful depth
-
-### Thin Content Risks
-- Single page — no blog, no service detail pages, no industry pages
-- "Reducing manual processing time significantly" in founder bio lacks specifics — vague
-- Case study outcome metrics not quantified (%, hours saved, €)
+### Performance
+- ✅ Single-file HTML, no external CSS/JS except Calendly
+- ✅ ET page images have `loading="lazy"`, `width`, `height`
+- ❌ EN founder photo missing `width`, `height`, `loading="lazy"` — causes CLS
 
 ---
 
 ## On-Page SEO
 
-| Element | Value | Status |
+### ET Page (`/et/`)
+- ✅ `<html lang="et">` correct
+- ✅ Meta description: current and accurate (143 chars)
+- ⚠️ Title "AI Automatiseerimine Reguleeritud Ettevõtetele" conflicts with on-page copy which has shifted to broader "ettevõtetele" (non-regulated) positioning
+- ❌ **OG/Twitter description stale** — old fintech-specific copy not matching meta description
+- ✅ H1 present and unique; H2/H3 hierarchy correct
+- ⚠️ H1 is problem-framed ("Teie spetsialistid teevad tööd...") — AI systems extract H1 as the primary entity description; this frames the brand as a "problem" not a solution
+- ⚠️ "Reguleeritud ettevõtted" appears in title/meta/schema but not in visible body copy — keyword gap
+
+### EN Page (`/`)
+- ✅ `<html lang="en">` correct; title and meta description correct
+- ❌ **OG/Twitter description stale** — still says "fintech, lending, and insurance businesses in the Baltic States automate compliance workflows..."
+
+---
+
+## Schema & Structured Data
+
+### ET Page
+- ✅ Both JSON-LD blocks parse without errors
+- ✅ FAQPage has 6 questions in Estonian
+- ✅ WebPage `inLanguage: "et"` and `@id` uses `/et/` URL
+- ❌ **FAQ schema answer text doesn't match visible HTML** — the "Milliste ettevõtetega" answer in schema ends "broneerige tasuta kõne ja me ütleme teile ausalt" but visible HTML ends "broneerige tasuta konsultatsioon ja arutame seda lähemalt". Google requires exact match for FAQ rich results. Other answers likely have similar divergence from all the iterative copy edits.
+- ⚠️ `WebSite` entity has `"inLanguage": "et"` — should be `"en"` (WebSite represents the whole site; only WebPage should have `"et"`)
+- ⚠️ `WebPage` schema missing `datePublished`
+
+---
+
+## AI Search Readiness (GEO) — Score: 54/100
+
+- ✅ llms.txt present and accessible
+- ✅ All major AI crawlers allowed in robots.txt
+- ❌ **llms.txt doesn't mention `/et/`** — AI systems get no knowledge the Estonian version exists
+- ❌ **llms.txt lacks machine-readable RSL 1.0 license header** — training prohibition is prose-only, not parsed by crawlers
+- ⚠️ **FAQ content in `<details>` collapse elements** — collapsed content may be invisible to some AI crawlers; FAQPage JSON-LD partially mitigates this but only if schema matches HTML exactly (see above)
+- ⚠️ All content passages are short (45-120 words vs. ideal 130-167 words for AI citation)
+- ⚠️ No Wikipedia entity for company or founder (strongest LLM citation signal)
+- ⚠️ No YouTube presence (tied for strongest citation signal)
+- ⚠️ No Reddit presence (second-strongest citation signal)
+- ⚠️ No statistics attributed to sources — unsourced claims treated as marketing copy by AI systems
+
+---
+
+## Content Quality & E-E-A-T — Score: 62/100
+
+| Factor | Score | Notes |
 |---|---|---|
-| Title | "AI Automation for Regulated Businesses \| FreeFlow Automations" (57 chars) | ✓ Good |
-| Meta description | 176 chars | ⚠ Too long (>160) |
-| H1 | "Your specialists are doing work that software should be doing." | ✓ Good (unique, compelling) |
-| H2s | Multiple — "Automation built for regulated businesses", "Three steps from production", etc. | ✓ Good |
-| H3s | Service cards and step names | ✓ Good |
-| Canonical | `https://freeflowautomations.com/` | ✓ Good |
-| Lang attribute | `lang="en"` | ✓ Good |
-| OG tags | og:type, og:url, og:title, og:description, og:image | ✓ Complete |
-| Twitter Card | summary_large_image with all required tags | ✓ Complete |
-| `<main>` element | Missing | ⚠ Accessibility/semantic gap |
-| Internal linking | Only `#cta` anchor and `#` for logo | ⚠ Limited |
+| Experience | 14/20 | Case study present but **zero measurable outcomes stated** |
+| Expertise | 17/25 | Named tech stack, dual-degree background, industry terminology |
+| Authoritativeness | 12/25 | No press, partner logos, client names, or third-party validation |
+| Trustworthiness | 18/30 | Phone/email/address/GDPR present; missing: company reg number, Estonian privacy policy |
 
-**Meta description (current — 176 chars):**
-> FreeFlow Automations helps fintech, lending, and insurance businesses in the Baltic States automate compliance workflows, document processing, and customer onboarding using AI.
-
-Should be trimmed to ~150-155 chars.
+**Key content gaps:**
+- ❌ Case study heading says "Päris tulemused" (real results) but **no actual metrics are stated** — no hours saved, no call volume, no error reduction
+- ❌ Privacy policy is English-only — GDPR Article 12 requires language understandable to the data subject
+- ❌ No company registration number (e-äriregister) — critical trust signal for Estonian B2B buyers in regulated sectors
+- ⚠️ Sector targeting (fintech, laenundus, kindlustus) appears in OG/schema but not in visible body copy
+- ⚠️ Section 2 offer box and hero lead paragraph cover the same ground without differentiation
 
 ---
 
-## Schema / Structured Data
+## Sitemap
 
-### What's implemented
-- `@graph` with linked entities: ProfessionalService, Person, WebSite, WebPage, 4× Service
-- FAQPage with 6 questions
-- GeoCoordinates (lat/long for Tallinn)
-- `areaServed` with Baltic States and Europe
-- `sameAs` linking to LinkedIn
-
-### Issues Found
-
-| Issue | Severity |
-|---|---|
-| `ProfessionalService` missing `image` property | High |
-| `ProfessionalService` missing `logo` property | High |
-| `ProfessionalService` missing `hasOfferCatalog` linking Service entities | Medium |
-| `ProfessionalService` missing `priceRange` | Low |
-| `ProfessionalService` missing `openingHours` | Low |
-| `PostalAddress` missing `streetAddress` | Low |
-| `Service` nodes use `areaServed: "Baltic States"` (string) instead of Place object | Low |
-| FAQPage answer text differs slightly from visible HTML | Low |
-
-### Schema validation
-The `FAQPage` schema answer text is longer/different from the visible `<details>` text. While Google uses the schema, discrepancy can cause validation warnings. The visible FAQ text is condensed vs. schema text.
+- ❌ `/et/` not listed
+- ⚠️ Privacy policy listed as `/privacy-policy` (no `.html`) — verify this URL returns 200
+- ⚠️ `lastmod` dates stale (2026-04-03, multiple deploys since)
+- ⚠️ No hreflang annotations in sitemap entries
 
 ---
 
-## Performance (Core Web Vitals estimate)
+## Score Breakdown
 
-Site characteristics:
-- Pure HTML/CSS/JS — no framework overhead
-- All CSS inline in `<style>` block — zero render-blocking stylesheets
-- No external JS libraries
-- Two images in viewport path: workflow.png (lazy ✓) and Sander_Ilves.jpg (not lazy ✗)
-
-| Metric | Estimate | Notes |
-|---|---|---|
-| LCP | Likely Good (<2.5s) | Lightweight page, text-based hero, no hero image |
-| INP | Likely Good (<200ms) | Minimal JS (only lightbox onclick) |
-| CLS | Risk present | Sander_Ilves.jpg has no width/height — layout shift possible |
-| TTFB | Likely Good | Netlify CDN |
-
-### Image issues affecting performance
-1. `Sander_Ilves.jpg` — missing `width="160" height="160"` attributes → CLS risk
-2. `Sander_Ilves.jpg` — missing `loading="lazy"` → unnecessary eager load for below-fold image
-3. Images are PNG/JPG — no WebP/AVIF served (Netlify does not auto-convert)
-
----
-
-## Images
-
-| Image | Alt text | width/height | loading | Format |
-|---|---|---|---|---|
-| `workflow.png` | ✓ "Debt collections automation workflow built in n8n" | ✓ 800×279 | ✓ lazy | PNG |
-| `Sander_Ilves.jpg` | ✓ "Sander Ilves, founder of FreeFlow Automations" | ✗ Missing | ✗ Missing | JPG |
-| `og-image.png` | N/A (meta only) | N/A | N/A | PNG |
-
----
-
-## AI Search Readiness
-
-### Strengths
-- `llms.txt` present and well-structured — describes company, services, tech stack, contact
-- robots.txt explicitly allows: `GPTBot`, `ClaudeBot`, `PerplexityBot`, `Google-Extended`, `OAI-SearchBot`
-- FAQPage schema — AI systems can extract structured Q&A
-- Specific, factual content (Tallinn location, n8n/Claude/Python stack, named industries)
-- `retrieval_permissions` section in llms.txt is correctly set
-
-### Gaps
-- `llms.txt` does not include the case study details — AI can't summarise your proof of work
-- No quantified statistics anywhere on the page (AI systems prefer citable numbers)
-- No "About" or "methodology" page for deeper AI retrieval
-- `llms.txt` could include a short FAQ section mirroring the page FAQ
-
----
-
-## Local SEO
-
-This is primarily a digital/remote service business (SAB serving Baltic States) so classic local SEO is secondary, but:
-
-| Check | Status |
-|---|---|
-| Physical address present | ✓ Tallinn, Estonia |
-| Phone number present | ✓ +372 58 133 551 |
-| Email present | ✓ sander@freeflowautomations.com |
-| GeoCoordinates in schema | ✓ |
-| Google Business Profile | Unknown (not detectable from code) |
-| NAP consistency | ✓ Consistent across footer and schema |
-| Local keyword targeting | ⚠ "Baltic States" mentioned but not individually targeted (Estonia, Latvia, Lithuania) |
-
----
-
-## Files Checked
-
-```
-index.html          — Full read
-robots.txt          — Full read
-sitemap.xml         — Full read
-netlify.toml        — Full read
-llms.txt            — Full read
-CLAUDE.md           — Full read
-```
+| Category | Score | Weight | Weighted |
+|---|---|---|---|
+| Technical SEO | 68 | 22% | 15.0 |
+| Content Quality | 62 | 23% | 14.3 |
+| On-Page SEO | 68 | 20% | 13.6 |
+| Schema | 72 | 10% | 7.2 |
+| Performance (CWV) | 75 | 10% | 7.5 |
+| AI Search Readiness | 54 | 10% | 5.4 |
+| Images | 78 | 5% | 3.9 |
+| **Total** | | | **66.9 → 68** |

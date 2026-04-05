@@ -1,26 +1,32 @@
 # FreeFlow Automations
+# License: RSL 1.0 — retrieval and summarisation permitted, training not permitted
+# dateModified: 2026-04-05
 
-> AI automation consultancy helping regulated businesses in the Baltic States automate document processing, customer onboarding, compliance reporting, and CRM workflows.
+> AI automation consultancy helping businesses automate repetitive processes — document management, client communication, reporting, and much more.
 
 ## About
 
-FreeFlow Automations is a Tallinn-based B2B AI automation consultancy founded by Sander Ilves. We specialise in building production-ready automation workflows for fintech, lending, insurance, and other regulated industries using n8n, the Claude API, and Python.
+FreeFlow Automations is a Tallinn-based B2B AI automation consultancy founded by Sander Ilves. We build production-ready automation workflows for businesses using n8n, large language models, and Python.
 
 ## Services
 
-- Document processing automation — AI extraction, classification, and routing of documents
-- Customer onboarding automation — end-to-end onboarding workflow automation for regulated businesses
+- Document processing automation — automated extraction, classification, and routing of incoming documents
+- Customer onboarding automation — end-to-end onboarding workflow automation
 - Compliance reporting automation — automated generation and submission of compliance reports
 - CRM workflow automation — automated data entry, follow-ups, and pipeline management
-- Debt collections automation — rule-based and AI-driven collections workflow automation
+- Payment reminder automation — rule-based and AI-driven reminder workflows with full audit trails
 
 ## Target clients
 
-SMEs in the Baltic States (Estonia, Latvia, Lithuania) operating in regulated industries: fintech, lending, insurance, debt collections.
+SMEs across all sectors, with strong experience in regulated industries: fintech, lending, insurance, and debt collections in the Baltic States (Estonia, Latvia, Lithuania).
 
 ## Technology stack
 
-n8n, Claude API (Anthropic), Python
+n8n, large language models (LLMs), Python
+
+## Alternate languages
+
+- Estonian (et): https://freeflowautomations.com/et/
 
 ## Contact
 
