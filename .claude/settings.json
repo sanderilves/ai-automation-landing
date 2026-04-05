@@ -6,7 +6,9 @@
       "Edit",
       "Bash",
       "Glob",
-      "Grep"
+      "Grep",
+      "Bash(git *)",
+      "Bash(cd *)"
     ]
   }
 }
