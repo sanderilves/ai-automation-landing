@@ -33,3 +33,15 @@
   to = "/et/privaatsuspoliitika.html"
   status = 301
   force = true
+
+[[redirects]]
+  from = "/eis-grant"
+  to = "/eis-grant.html"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/et/eis-toetus"
+  to = "/et/eis-toetus.html"
+  status = 301
+  force = true

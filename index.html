@@ -386,6 +386,8 @@
       color: #000000;
       letter-spacing: -0.01em;
       white-space: nowrap;
+      line-height: 1;
+      margin: 0;
       padding-top: 0;
     }
     .footer-col {
@@ -439,6 +441,19 @@
       height: 18px;
       fill: #fff;
     }
+    .footer-eis {
+      flex: 1;
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+      padding-top: 0;
+      margin-top: 0;
+    }
+    .footer-eis img {
+      width: 200px;
+      height: auto;
+      display: block;
+    }
     @media (max-width: 640px) {
       footer { padding: 40px 24px; }
       .footer-inner {
@@ -447,6 +462,7 @@
         gap: 28px;
       }
       .footer-linkedin { justify-content: flex-start; }
+      .footer-eis { justify-content: flex-start; }
     }
 
     /* ─── Quick Wins grid ─── */
@@ -992,6 +1008,12 @@
         <span class="footer-col-label">Contact</span>
         <a href="mailto:sander@freeflowautomations.com">sander@freeflowautomations.com</a>
         <a href="tel:+37258133551">+372 58 133 551</a>
+      </div>
+
+      <div class="footer-eis">
+        <a href="/eis-grant" target="_blank" rel="noopener" aria-label="EIS grant funding information">
+          <img src="Kaasrahastanud_EL_kaksiklogod_ENG_hor_color_RGB.png" alt="Co-funded by the European Union and Enterprise Estonia (EIS)" width="200" height="96" loading="lazy" />
+        </a>
       </div>
 
       <div class="footer-linkedin">
